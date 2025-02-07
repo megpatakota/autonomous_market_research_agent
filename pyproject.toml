@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "autonomous-market-research-agent"
+version = "0.1.0"
+description = ""
+authors = ["Meg"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+rich = "^13.9.4"
+python-dotenv = "^1.0.1"
+jinja2 = "^3.1.5"
+litellm = "^1.60.6"
+pydantic = "^2.10.6"
+tenacity = "^9.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
