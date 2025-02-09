@@ -6,6 +6,7 @@ from rich.console import Console
 
 logger = Console()
 
+
 class Agent(Tool):
     def __init__(
         self,
@@ -25,7 +26,9 @@ class Agent(Tool):
     def run(self, conversation: Conversation) -> str:
         for turn in range(self.max_turns):
             tool, function_args = self.get_next_action(conversation)
-            logger.log(f"[bold cyan]Using the {tool.name} tool with arguments {function_args}[/bold cyan]")
+            logger.log(
+                f"[bold cyan]Using the {tool.name} tool with arguments {function_args}[/bold cyan]"
+            )
             response = tool.run(conversation, **function_args)
             if tool.terminating:
                 return response
