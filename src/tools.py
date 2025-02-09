@@ -7,7 +7,9 @@ import os
 from pydantic import BaseModel
 from copy import deepcopy
 from tavily import TavilyClient
+from rich.console import Console
 
+logger = Console()
 
 class Reasoning(Tool):
     def __init__(self, terminating: bool = False):
@@ -89,14 +91,11 @@ class Report(Tool):
         return self.write_report(conversation, outline)
 
     def write_report(self, conversation: Conversation, outline: Outline) -> str:
-
         report_conversation = deepcopy(conversation)
-
         report_so_far = f"# {outline.title}\n\n"
 
         for section in outline.sections:
-            print(f"Writing section: {section.title}")
-
+            logger.log(f"[bold green]Writing section: {section.title}[/bold green]")
             with open("templates/write_report.jinja2", "r") as file:
                 template = jinja2.Template(file.read()).render(
                     {
@@ -113,6 +112,7 @@ class Report(Tool):
         return report_so_far
 
     def generate_outline(self, conversation: Conversation) -> Outline:
+        logger.log(f"[bold green]Planning a structure for the report.[/bold green]")
         with open("templates/report_outline.jinja2", "r") as file:
             template = jinja2.Template(file.read()).render()
         conversation.add_message("user", template)

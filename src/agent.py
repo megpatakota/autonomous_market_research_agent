@@ -2,7 +2,9 @@ from typing import List
 from .conversation import Conversation
 from .base import Tool
 import json
+from rich.console import Console
 
+logger = Console()
 
 class Agent(Tool):
     def __init__(
@@ -23,7 +25,7 @@ class Agent(Tool):
     def run(self, conversation: Conversation) -> str:
         for turn in range(self.max_turns):
             tool, function_args = self.get_next_action(conversation)
-            print(f"Using the {tool.name} tool with arguments {function_args}")
+            logger.log(f"[bold cyan]Using the {tool.name} tool with arguments {function_args}[/bold cyan]")
             response = tool.run(conversation, **function_args)
             if tool.terminating:
                 return response
