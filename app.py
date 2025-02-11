@@ -22,8 +22,8 @@ def main():
     parser.add_argument(
         "--main_turns",
         type=int,
-        default=15,
-        help="Max turns for the main agent (default: 15)",
+        default=3,
+        help="Max turns for the main agent (default: 3)",
     )
     parser.add_argument(
         "--research_turns",
