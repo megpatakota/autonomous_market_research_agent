@@ -13,9 +13,6 @@ Here’s a README for your new codebase, following the structure of the example 
 ## Table of Contents
 - [Overview](#overview)
 - [Installation](#installation)
-- [Core Modules](#core-modules)
-- [Data Flow & Processing](#data-flow--processing)
-- [API Integration](#api-integration)
 - [Next Steps](#next-steps)
 - [Contributing](#contributing)
 
@@ -25,20 +22,6 @@ Here’s a README for your new codebase, following the structure of the example 
 
 This project is an **AI-powered conversational agent** that utilizes advanced reasoning, search capabilities, and structured response generation to interact with users dynamically. The core functionalities include:
 
-### Key Components
-1. **AI Reasoning Engine** (reasoning.py, base.py)  
-   - Implements logic-driven conversation flows.  
-   - Uses predefined rules and search mechanisms.  
-
-2. **Agent Core** (agent.py, conversation.py)  
-   - Manages interactions, decision-making, and response generation.  
-
-3. **Information Retrieval** (search.py, extract.py)  
-   - Fetches relevant information from knowledge bases.  
-
-4. **User Interaction** (app.py)  
-   - Streamlit-based interface for interacting with the conversational agent.  
-
 ---
 
 ## Installation
@@ -46,7 +29,10 @@ This project is an **AI-powered conversational agent** that utilizes advanced re
 ### Prerequisites
 - Python 3.10+
 - Poetry (for dependency management)
-- Streamlit (for UI)
+- OPENAI_API_KEY
+- TAVILY_API_KEY
+    - Go to the [Tavily website](https://docs.tavily.com/api-reference/introduction)
+    - Click on 'Get an API Key'
 
 ### Setup
 
@@ -67,85 +53,6 @@ poetry run python run app.py
 ---
 ![Architecture](./images/ProcessDiagram.png)
 
-## Core Modules
-
-### `agent.py`
-- Central orchestrator handling conversation flow.
-- Calls reasoning and search components to generate intelligent responses.
-
-### `conversation.py`
-- Manages dialogue history and tracks previous interactions.
-- Ensures continuity in multi-turn conversations.
-
-### `reasoning.py`
-- Processes user input using predefined reasoning mechanisms.
-- Evaluates the best course of action before responding.
-
-### `search.py`
-- Conducts information retrieval for user queries.
-- Uses contextual search to fetch relevant details.
-
-### `respond.py`
-- Formats and structures responses for consistency.
-
-### `extract.py`
-- Extracts key entities from user input using NLP techniques.
-
-### `report.py`
-- Generates structured reports based on conversation logs.
-
----
-
-## Data Flow & Processing
-
-1. **User Input → `app.py`**
-   - Captures and preprocesses user queries.
-
-2. **Conversation Management → `conversation.py`**
-   - Maintains session history and retrieves previous interactions.
-
-3. **Intent Identification & Reasoning → `reasoning.py`**
-   - Evaluates user input to determine the best response strategy.
-
-4. **Search & Extraction → `search.py` & `extract.py`**
-   - Retrieves relevant information from knowledge sources.
-
-5. **Response Generation → `respond.py`**
-   - Constructs and returns a structured response.
-
----
-
-## API Integration
-
-This project includes an **API-based architecture** for seamless integration with external services.
-
-### Example Endpoint
-
-#### `/chat`
-Handles user messages and returns intelligent responses.
-
-- **Request:**
-  ```json
-  {
-      "user_id": "123",
-      "message": "What are the latest climate policies?"
-  }
-  ```
-- **Response:**
-  ```json
-  {
-      "response": "The latest climate policies include...",
-      "source": "Official government sources"
-  }
-  ```
-
----
-
-## Next Steps
-
-- [ ] Enhance reasoning module with machine learning.
-- [ ] Expand search capabilities to integrate external APIs.
-- [ ] Improve response generation with fine-tuned LLMs.
 
 ---
 
@@ -164,5 +71,3 @@ For further discussions or feedback, reach out via [GitHub](https://meg-patakota
 This project is maintained by **Meg Patakota**. Not licensed for redistribution without explicit permission.
 
 ---
-
-This README aligns with your previous project format while detailing the conversational agent’s architecture and flow. Let me know if you need modifications! 🚀
