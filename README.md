@@ -1,7 +1,3 @@
-Here’s a README for your new codebase, following the structure of the example you provided:
-
----
-
 # AI-Powered Conversational Agent
 
 [![Personal Project](https://img.shields.io/badge/Project-Personal-green)](https://meg-patakota.github.io)
@@ -35,6 +31,7 @@ This project is an **AI-powered conversational agent** that utilizes advanced re
     - Click on 'Get an API Key'
 
 ### Setup
+Run the following in your command line/terminal
 
 ```bash
 # Clone the repository
