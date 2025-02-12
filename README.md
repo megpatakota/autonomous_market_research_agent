@@ -62,7 +62,7 @@ poetry run python app.py
 
 This agent follows a **modular architecture**, selecting actions dynamically based on user queries and conversation history.
 
-![Architecture](./images/ArchitectureDiagram.png)
+![Architecture](./images/ProcessDiagram.png)
 
 ### Key Components:
 1. **CLI Program (`app.py`)**  
