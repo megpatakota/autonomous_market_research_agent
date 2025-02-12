@@ -16,19 +16,29 @@
 
 ## Overview
 
-This project is an **AI-powered conversational agent** that utilizes advanced reasoning, search capabilities, and structured response generation to interact with users dynamically. The core functionalities include:
+
+This project is an **AI-powered autonomous agent** designed for **market research**. It leverages advanced reasoning, search capabilities, and structured response generation to dynamically interact with user queries.
+
+The agent is designed to:
+- Conduct **multi-step reasoning** before generating responses.
+- Search and retrieve **relevant data** using the **Tavily API**.
+- Handle multiple **conversation turns** while maintaining context.
+- Generate structured **market research reports**.
+
+The system runs **through a CLI interface**, where users input queries, and the agent autonomously determines the best tools to execute.
+
 
 ---
 
 ## Installation
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.13
 - Poetry (for dependency management)
-- OPENAI_API_KEY
-- TAVILY_API_KEY
-    - Go to the [Tavily website](https://docs.tavily.com/api-reference/introduction)
-    - Click on 'Get an API Key'
+- API Keys:
+    - **OPENAI_API_KEY** (for reasoning and response generation)
+    - **TAVILY_API_KEY** (for external search capabilities)
+        - Go to the [Tavily website](https://docs.tavily.com/api-reference/introduction) to get an API Key.
 
 ### Setup
 Run the following in your command line/terminal
@@ -44,15 +54,44 @@ poetry install
 # Run the app
 export OPENAI_API_KEY="your-api-key-here"
 export TAVILY_API_KEY="your-tavily-api-key-here"
-poetry run python run app.py
+poetry run python app.py
 ```
 
 ---
-![Architecture](./images/ProcessDiagram.png)
+## Architecture
 
+This agent follows a **modular architecture**, selecting actions dynamically based on user queries and conversation history.
+
+![Architecture](./images/ArchitectureDiagram.png)
+
+### Key Components:
+1. **CLI Program (`app.py`)**  
+   - Handles user input and manages the conversational flow.
+   - Stores conversation history.
+   
+2. **Main Agent (`agent.py`)**  
+   - Selects the best **tool** to use at each step.
+   - Can perform multiple actions per query (reasoning, research, clarification).
+   - Terminates when a valid response is generated.
+
+3. **Available Tools**  
+   - **Reasoning (`reasoning.py`)** → Processes user queries logically.
+   - **Search (`search.py`)** → Uses **TavilyClient** to find relevant data.
+   - **Extract (`extract.py`)** → Extracts insights from retrieved documents.
+   - **Respond (`respond.py`)** → Generates final structured responses.
+   - **Research Agent (`research.py`)** → Conducts iterative searches and summarizes results.
+   - **Report (`report.py`)** → Generates structured **market research reports**.
 
 ---
 
+## Next Steps
+A few to consider:
+
+- [ ] Improve prompt templates used. E.g: Consider using one reasoning template for main agent and research agent
+- [ ] Expand to a **multi-agent** approach. E.g: model drafts a research plan → produces different research directions → one direction per agent running at the same time →c ompile and write report
+- [ ] Evaluate the performance of the agent
+
+---
 ## Contributing
 
 1. Fork the repository.
