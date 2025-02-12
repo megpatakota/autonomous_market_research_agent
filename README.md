@@ -98,7 +98,7 @@ A few to consider:
 2. Open an issue for discussion.
 3. Submit a Pull Request with clear descriptions.
 
-For further discussions or feedback, reach out via [GitHub](https://meg-patakota.github.io).
+For further discussions or feedback, reach out via [GitHub](https://megpatakota.com).
 
 ---
 
