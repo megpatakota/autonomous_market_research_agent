@@ -18,8 +18,9 @@
 
 
 This project is an **AI-powered autonomous agent** designed for **market research**. It leverages advanced reasoning, search capabilities, and structured response generation to dynamically interact with user queries.
+We build this with 2 agents: the main agent and the research agent and several tools for each of these agents/
 
-The agent is designed to:
+The main agent is designed to:
 - Conduct **multi-step reasoning** before generating responses.
 - Search and retrieve **relevant data** using the **Tavily API**.
 - Handle multiple **conversation turns** while maintaining context.
@@ -55,7 +56,20 @@ poetry install
 export OPENAI_API_KEY="your-api-key-here"
 export TAVILY_API_KEY="your-tavily-api-key-here"
 poetry run python app.py
+
+# Alternatively, you can run the following:
+"""
+main_turns:  
+- Number of actions the main agent can a do in a row. Like, reason, reason again, clarify (default 3)
+- mandatory for an agent as it now has ability to do multiple things based on an input 
+research_turns:
+- Similar to main_turns but for the research agent
+- We set this to a higher value as the agent gets time to try multiple searches (default 15)
+"""
+poetry run python app.py --main_turns 3 --research_turns 2
+
 ```
+
 
 ---
 ## Architecture
