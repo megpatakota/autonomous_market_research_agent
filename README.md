@@ -91,7 +91,7 @@ This agent follows a **modular architecture**, selecting actions dynamically bas
 3. **Available Tools**  
    - **Reasoning (`reasoning.py`)** → Processes user queries logically.
    - **Search (`search.py`)** → Uses **TavilyClient** to find relevant data.
-   - **Extract (`extract.py`)** → Extracts insights from retrieved documents.
+   - **Extract (`extract.py`)** → Uses **TavilyClient** and extracts insights from retrieved documents.
    - **Respond (`respond.py`)** → Generates final structured responses.
    - **Research Agent (`research.py`)** → Conducts iterative searches and summarizes results.
    - **Report (`report.py`)** → Generates structured **market research reports**.
@@ -112,7 +112,7 @@ A few to consider:
 2. Open an issue for discussion.
 3. Submit a Pull Request with clear descriptions.
 
-For further discussions or feedback, reach out via [GitHub](https://meg-patakota.github.io).
+For further discussions or feedback, reach out via [my website](https://megpatakota.com).
 
 ---
 
